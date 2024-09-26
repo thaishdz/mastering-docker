@@ -56,20 +56,30 @@ Aquí defines un **volumen**. Un volumen en Docker es un mecanismo para montar u
   - **Punto (`.`)**: Se refiere al **directorio actual en tu máquina local**, es decir, el directorio donde se encuentra tu código y archivos del proyecto.
   - **`:/app`**: Es el **directorio dentro del contenedor** donde se montará ese directorio local.
 
-#### ¿Qué significa esto en la práctica?
-- **Sincronización de archivos**: Cualquier cambio que hagas en los archivos dentro de tu directorio local (host) se reflejará automáticamente dentro del contenedor. Esto es útil durante el desarrollo, ya que puedes modificar tu código sin tener que reconstruir o reiniciar el contenedor cada vez.
+#### Cambios sincronizados
+
+Cualquier cambio que hagas en los archivos dentro de tu directorio local (host) se reflejará automáticamente dentro del contenedor. Esto es útil durante el desarrollo, ya que puedes modificar tu código sin tener que reconstruir o reiniciar el contenedor cada vez.
   
   En este ejemplo, el directorio del host será accesible dentro del contenedor bajo la ruta `/app`.
 
 ### Ejemplo de flujo de trabajo:
 
 1. Inicias el contenedor con `docker compose up`.
-2. Editas tu archivo `index.php` en tu máquina local, añadiendo una nueva línea como:
+2. Editas tu archivo `index.php` en tu máquina local, añadiendo una nueva línea:
     ```php
     echo "Nueva línea de código\n";
     ```
 3. No necesitas detener el contenedor ni volver a construir la imagen. Simplemente recargas o ejecutas el contenedor, y el código actualizado estará disponible de inmediato dentro del contenedor.
 
+### No se me puto actualizan los cambios sin tirar `docker compose up` ...
+
+Ya, es que para tener un WATCHER tienes que añadirle esto:
+
+```yaml
+
+
+
+```
 
 ### ¿Qué hace Docker con esto?
 Cuando defines un volumen de esta manera:
