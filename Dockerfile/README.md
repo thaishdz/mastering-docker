@@ -65,13 +65,13 @@ Imagina que trabajas en un equipo en el que algunos usan **Windows** y otros usa
 
 
 
-### Resumen:
+### Resumen
 
 Usar un `Dockerfile` te proporciona:
-- **Consistencia y control** sobre el entorno de ejecución de tu aplicación.
-- **Aislamiento** de dependencias y configuraciones.
-- **Automatización** del proceso de instalación y configuración.
-- **Portabilidad** para que tu aplicación se ejecute en cualquier lugar de la misma manera.
-- **Escalabilidad** para desplegar y ejecutar aplicaciones en múltiples entornos de manera sencilla.
+- **Consistencia y control** sobre el entorno de ejecución de tu aplicación. ✔️
+- **Aislamiento** de dependencias y configuraciones. ✔️
+- **Automatización** del proceso de instalación y configuración. ✔️
+- **Portabilidad** para que tu aplicación se ejecute en cualquier lugar de la misma manera. ✔️
+- **Escalabilidad** para desplegar y ejecutar aplicaciones en múltiples entornos de manera sencilla. ✔️
 
-En resumen, un `Dockerfile` te permite construir **imágenes reproducibles y aisladas**, lo que garantiza que tu aplicación funcione de manera confiable en cualquier entorno.
+En resumen, un `Dockerfile` te permite construir **imágenes reproducibles y aisladas**, lo que garantiza que tu aplicación funcione de manera confiable en cualquier entorno. 👍
