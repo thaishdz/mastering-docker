@@ -77,6 +77,13 @@ Aquí defines un **volumen**. Un volumen en Docker es un mecanismo para montar u
     ```
 3. No necesitas detener el contenedor ni volver a construir la imagen. Simplemente recargas o ejecutas el contenedor, y el código actualizado estará disponible de inmediato dentro del contenedor.
 
+
+### ¿Qué hace Docker con esto?
+Cuando defines un volumen de esta manera:
+- Docker monta el directorio local (`.`) en el contenedor, en el directorio `/app`. 
+- Si haces cualquier cambio en el código en tu máquina local (el directorio que corresponde a `.`), esos cambios se reflejan automáticamente en el contenedor, en la carpeta `/app`.
+- No necesitas volver a construir la imagen o reiniciar el contenedor, ya que siempre estará trabajando con los archivos más actualizados de tu máquina.
+  
 En resumen, con esta configuración, tu código en el contenedor estará **"sincronizado" en tiempo real** con el de tu máquina local, haciendo mucho más ágil el proceso de desarrollo.
 
 ## ¿Quieres más volúmenes?
@@ -143,19 +150,3 @@ Cada vez que levantes el contenedor, Docker ejecutará automáticamente el coman
 - **Facilidad de uso**: Te permite ejecutar tu entorno PHP con un solo comando (`docker-compose up`), sin tener que escribir largos comandos `docker run`.
 - **Desarrollo en tiempo real**: Con los volúmenes, puedes modificar tus archivos en tu máquina local, y esos cambios se reflejan instantáneamente dentro del contenedor.
 - **Portabilidad**: Este archivo puede ser compartido entre miembros de tu equipo o utilizado en distintos entornos sin problemas, asegurando que todos ejecuten la aplicación de la misma manera.
-
-
-
-### ¿Qué significa esta línea?
-1. `.`: La parte a la izquierda de los dos puntos (`:`) representa el directorio actual en tu máquina local (el *host*), es decir, donde está tu código fuente.
-2. `/app`: La parte a la derecha de los dos puntos es el directorio dentro del contenedor donde queremos montar ese código.
-
-### ¿Qué hace Docker con esto?
-Cuando defines un volumen de esta manera:
-- Docker monta el directorio local (`.`) en el contenedor, en el directorio `/app`. 
-- Si haces cualquier cambio en el código en tu máquina local (el directorio que corresponde a `.`), esos cambios se reflejan automáticamente en el contenedor, en la carpeta `/app`.
-- No necesitas volver a construir la imagen o reiniciar el contenedor, ya que siempre estará trabajando con los archivos más actualizados de tu máquina.
-
-
-### ¿Por qué es útil?
-Cuando desarrollas, no quieres estar constantemente reconstruyendo la imagen o volviendo a crear el contenedor cada vez que cambias una línea de código. El uso de volúmenes te permite trabajar de manera fluida y rápida, como si estuvieras ejecutando PHP directamente en tu máquina, pero dentro de un contenedor.
