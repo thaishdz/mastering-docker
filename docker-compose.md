@@ -132,7 +132,7 @@ El directorio local `./mi-proyecto-loco` se monta en el contenedor en `/app`. Es
 
 Si usas una configuración de **"watch"** o alguna funcionalidad de sincronización nativa de Docker, sería Docker el encargado de gestionar los archivos y monitorear cambios, **sin depender del sistema de archivos del host directamente** como lo hace un **bind mount**.
 
-1. **Bind Mount** (lo que tienes ahora con `- ./mi-proyecto-loco:/app `):
+1. **Bind Mount** (lo que tienes ahora con `volumes: - ./mi-proyecto-loco:/app `):
    - **El sistema de archivos del host gestiona la sincronización**: Los archivos del directorio local en tu máquina se montan directamente dentro del contenedor, lo que significa que el sistema de archivos del host es responsable de gestionar esos archivos.
    
    - **Tiempo real**: Los cambios en el host se reflejan instantáneamente en el contenedor y viceversa.
