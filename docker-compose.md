@@ -145,4 +145,4 @@ Cada vez que levantes el contenedor, Docker ejecutará automáticamente el coman
 - **Portabilidad**: Este archivo puede ser compartido entre miembros de tu equipo o utilizado en distintos entornos sin problemas, asegurando que todos ejecuten la aplicación de la misma manera.
 
 ### Ayuditas 🛎️
--[Docker Compose Quickstart📰⚡](https://docs.docker.com/compose/gettingstarted/)
+- [Docker Compose Quickstart⚡📰](https://docs.docker.com/compose/gettingstarted/)
