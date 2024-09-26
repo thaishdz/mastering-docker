@@ -71,17 +71,117 @@ Cualquier cambio que hagas en los archivos dentro de tu directorio local (host) 
     ```
 3. No necesitas detener el contenedor ni volver a construir la imagen. Simplemente recargas o ejecutas el contenedor, y el código actualizado estará disponible de inmediato dentro del contenedor.
 
-### No se me puto actualizan los cambios sin tirar `docker compose up` ...
+### [CONCEPTO 💡] Bind mount
 
-Ya, es que para tener un WATCHER tienes que añadirle esto:
+Un __bind mount__ es un tipo de volumen que te permite montar un directorio o archivo del host (tu máquina local) dentro de un contenedor. Cuando usas un bind mount, cualquier cambio que hagas en los archivos dentro de ese directorio en tu máquina local se reflejará inmediatamente dentro del contenedor, y viceversa.
+
+### ¿Cómo funciona un bind mount?
+
+Con un bind mount, Docker NO controla el contenido del volumen; es tu máquina (host) la que proporciona el directorio. Puedes especificar tanto la ruta en el host como la ruta en el contenedor donde quieres que se monte.
+
+### Ejemplo
+
+Imagina que tienes un archivo PHP en el directorio `/home/thais/proyectoLoco` de tu máquina local. Puedes montar este directorio dentro de un contenedor usando un `bind mount`:
+
+```sh
+docker run -v /home/user/proyecto:/var/www/html php:8.1-apache
+```
+
+- `/home/user/proyectoLoco`: Es el directorio en tu máquina local (host) donde está tu código PHP.
+  
+- `/var/www/html`: Es el directorio dentro del contenedor donde el servidor web Apache espera encontrar los archivos PHP.
+  
+- Cualquier cambio que hagas en el código dentro de `/home/user/proyectoLoco` en tu máquina local se verá automáticamente dentro del contenedor en `/var/www/html`.
+
+### Ventajas de los `bind mounts`
+
+1.	Sincronización en tiempo real: Los cambios en el sistema de archivos del host se reflejan automáticamente dentro del contenedor. Esto es útil para desarrollo.
+2.	Control total: Puedes acceder y modificar los archivos del host desde el contenedor y viceversa.
+3.	Flexibilidad: Puedes montar cualquier directorio o archivo del host en el contenedor sin tener que hacer cambios en el contenedor.
+
+### Desventajas de los `bind mounts`
+
+1. __Dependencia del sistema de archivos del host__: El contenedor depende del sistema de archivos del host, por lo que la portabilidad puede verse afectada si se ejecuta en diferentes entornos (por ejemplo, en otro servidor que no tenga la misma estructura de directorios).
+  
+2. __Menos aislado__: Si accidentalmente modificas o eliminas archivos en el host, esos cambios se reflejan en el contenedor y viceversa, lo que puede ser riesgoso en producción.
+
+### Diferencia con volúmenes gestionados por Docker
+
+•	__Bind mounts__: Usan directorios específicos en el sistema de archivos del host que defines manualmente.
+
+•	__Volúmenes de Docker__: Docker administra los volúmenes y guarda los datos en una ubicación interna dentro del sistema Docker, lo que proporciona más independencia y control de los datos entre contenedores y el host.
+
+### Ejemplo con un `bind mount`
 
 ```yaml
 
-
+services:
+  php:
+    image: php:8.1-cli
+    volumes:
+      - ./mi-proyecto-loco:/app // el bind mount
+    working_dir: /app
+    command: php index.php
 
 ```
 
-### ¿Qué hace Docker con esto?
+El directorio local `./mi-proyecto-loco` se monta en el contenedor en `/app`. Esto significa que cualquier archivo en __mi-proyecto-loco__ estará disponible en el contenedor, y los cambios serán bidireccionales (entre el host y el contenedor).
+
+
+## Bind Mount VS Watch
+
+Si usas una configuración de **"watch"** o alguna funcionalidad de sincronización nativa de Docker, sería Docker el encargado de gestionar los archivos y monitorear cambios, **sin depender del sistema de archivos del host directamente** como lo hace un **bind mount**.
+
+1. **Bind Mount** (lo que tienes ahora con `- .:/app`):
+   - **El sistema de archivos del host gestiona la sincronización**: Los archivos del directorio local en tu máquina se montan directamente dentro del contenedor, lo que significa que el sistema de archivos del host es responsable de gestionar esos archivos.
+   
+   - **Tiempo real**: Los cambios en el host se reflejan instantáneamente en el contenedor y viceversa.
+     
+   - **Dependencia del host**: Estás directamente enlazando el sistema de archivos de tu máquina local con el contenedor, lo que puede causar problemas si las rutas de los archivos cambian, o si llevas el contenedor a otro entorno donde la estructura de directorios sea diferente.
+
+2. **Watch (sincronización gestionada por Docker)**:
+   - **Docker gestiona la sincronización**: En este caso, Docker supervisa los archivos locales y gestiona la sincronización con los archivos dentro del contenedor. Esto significa que Docker maneja la actualización de los archivos en el contenedor en lugar de depender del sistema de archivos del host.
+     
+   - **Independencia del host**: Con "watch" o alguna forma de sincronización nativa de Docker, los archivos no están directamente "montados" en el contenedor. Docker monitorea los cambios en los archivos locales y sincroniza los cambios dentro del contenedor, pero de una manera más desacoplada.
+     
+   - **Más control**: Docker puede ofrecer reglas más sofisticadas de cómo sincronizar los archivos, por ejemplo, qué archivos observar o ignorar.
+
+### ¿Cómo funcionaría con `watch` en Docker Compose?
+
+Si intentas poner un `watch` junto a un `bind mount` Docker te dirá que ya existe este y que sudará la polla de trackearlo, por lo que habrá un ✨conflicto✨. Si quieres que **Docker gestione completamente la sincronización** y no depender del sistema de archivos local, deberías **eliminar el bind mount** y dejar que `watch` haga su trabajo.
+
+### Ejemplo con `watch`:
+
+```yaml
+
+services:
+  php:
+    build: .
+    develop:
+      watch:
+        - action: sync
+          path: .
+          target: /app
+    working_dir: /app
+    command: php ./index.php
+```
+
+### En este caso:
+- **Elimina el bind mount** (`volumes: - .:/app`) para que no haya conflicto entre el sistema de archivos del host y la gestión de Docker.
+  
+- **Docker gestionará los archivos** usando la funcionalidad `watch`, supervisando el directorio `.` (tu directorio local) y sincronizando los cambios en `/app` dentro del contenedor.
+
+### Cuando usar uno u otro 
+
+👉 **Usar bind mounts**: Es útil en desarrollo cuando necesitas sincronización en tiempo real y un entorno simple donde los archivos del host están directamente accesibles dentro del contenedor. Ideal para máquinas locales donde no necesitas alta portabilidad.
+  
+👉 **Usar `watch` (sincronización gestionada por Docker)**: Es más adecuado si quieres más independencia entre el contenedor y el host, o si trabajas en entornos que podrían tener problemas con bind mounts, como sistemas Windows o si necesitas reglas avanzadas de sincronización.
+
+**Resumen**: Si configuras `watch`, Docker se encargaría de gestionar la sincronización de archivos, **desacoplándote** del sistema de archivos del host. Esto puede ser más robusto y portable en ciertos casos, especialmente en entornos de producción o desarrollo que requieren mayor flexibilidad. Solo asegúrate de **eliminar el bind mount** para evitar conflictos.
+
+---
+
+### ¿Qué hace Docker un volumen?
 Cuando defines un volumen de esta manera:
 - Docker monta el directorio local (`.`) en el contenedor, en el directorio `/app`. 
 - Si haces cualquier cambio en el código en tu máquina local (el directorio que corresponde a `.`), esos cambios se reflejan automáticamente en el contenedor, en la carpeta `/app`.
