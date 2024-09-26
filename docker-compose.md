@@ -24,7 +24,7 @@ services:
 version: '3'
 ```
 Esta línea define la **versión del formato de archivo de Docker Compose** que estás utilizando.
-- **Versión 3**: Es una de las versiones más usadas, especialmente para entornos de producción y despliegues modernos, compatible con las funcionalidades básicas y avanzadas de Docker Compose.
+- **Versión 3**: De las versiones más usadas (a 2024), especialmente para entornos de producción y despliegues.
 ---
 ```yaml
 services:
