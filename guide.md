@@ -1,5 +1,5 @@
 
-# Guía de montaje 🚀
+# Installation Guide 🚀
 
 
 Instalación de Docker hasta la ejecución de un contenedor PHP.
