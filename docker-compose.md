@@ -171,9 +171,9 @@ services:
   
 - **Docker gestionará los archivos** usando la funcionalidad `watch`, supervisando el directorio `.` (tu directorio local) y sincronizando los cambios en `/app` dentro del contenedor.
 
-### Cuando usar uno u otro 
+### Cuando usar uno u otro ☝️
 
-👉 **Usar bind mounts**: Es útil en desarrollo cuando necesitas sincronización en tiempo real y un entorno simple donde los archivos del host están directamente accesibles dentro del contenedor. Ideal para máquinas locales donde no necesitas alta portabilidad.
+👉 **Usar `bind mounts`**: Es útil en desarrollo cuando necesitas sincronización en tiempo real y un entorno simple donde los archivos del host están directamente accesibles dentro del contenedor. Ideal para máquinas locales donde no necesitas alta portabilidad.
   
 👉 **Usar `watch` (sincronización gestionada por Docker)**: Es más adecuado si quieres más independencia entre el contenedor y el host, o si trabajas en entornos que podrían tener problemas con bind mounts, como sistemas Windows o si necesitas reglas avanzadas de sincronización.
 
