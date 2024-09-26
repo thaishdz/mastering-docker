@@ -81,7 +81,7 @@ Ahora vamos a crear un simple script PHP que será ejecutado dentro del contened
 
 ```php
 <?php
-echo "¡Hola, mundo desde Docker!\n";
+echo "¡Hola, Docker! 👋\n";
 ```
 
 #### Crear un archivo `docker-compose.yml`
@@ -93,7 +93,6 @@ Aparte de sincronizar los cambios que hagas en el código.
 Crea el archivo `docker-compose.yml` en el mismo directorio con el siguiente contenido:
 
 ```yaml
-version: '3'
 services:
   php:
     build: .
@@ -132,7 +131,7 @@ docker run --rm php-docker-app
 Este comando ejecutará el script `index.php` dentro del contenedor y deberías ver la salida:
 
 ```
-¡Hola, mundo desde Docker!
+¡Hola Docker! 👋
 ```
 
 ### Paso 6: Ejecutar con Docker Compose
@@ -140,7 +139,7 @@ Este comando ejecutará el script `index.php` dentro del contenedor y deberías 
 Puedes levantar el contenedor así:
 
 ```bash
-docker-compose up
+docker compose up
 ```
 
 Este comando construirá y ejecutará el contenedor de acuerdo con las especificaciones del archivo `docker-compose.yml`.
