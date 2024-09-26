@@ -146,7 +146,7 @@ Cada vez que levantes el contenedor, Docker ejecutará automáticamente el coman
    - **Define el directorio de trabajo** como `/app`, para que los comandos se ejecuten desde ahí.
    - **Ejecuta automáticamente el comando `php ./index.php`**, lo que hará que tu script PHP se ejecute cuando el contenedor arranque.
 
-### ¿Por qué es útil este archivo `docker-compose.yml`?
+### ¿Por qué es útil `docker-compose.yml`?
 - **Facilidad de uso**: Te permite ejecutar tu entorno PHP con un solo comando (`docker-compose up`), sin tener que escribir largos comandos `docker run`.
 - **Desarrollo en tiempo real**: Con los volúmenes, puedes modificar tus archivos en tu máquina local, y esos cambios se reflejan instantáneamente dentro del contenedor.
 - **Portabilidad**: Este archivo puede ser compartido entre miembros de tu equipo o utilizado en distintos entornos sin problemas, asegurando que todos ejecuten la aplicación de la misma manera.
