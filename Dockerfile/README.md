@@ -55,9 +55,15 @@ Si no usas un `Dockerfile`, tendrías que hacer todo manualmente cada vez que ne
 - Además, cada miembro del equipo tendría que asegurarse de que todas las configuraciones son exactamente iguales, lo que es propenso a errores.
 
 ### Ejemplo de una situación:
-Imagina que trabajas en un equipo en el que algunos usan **Windows** y otros usan **Linux**. Sin un `Dockerfile`, cada uno tendría que configurar manualmente PHP y las dependencias necesarias en su sistema operativo, lo que puede generar inconsistencias (problemas con versiones, configuraciones, o dependencias). 
+Imagina que trabajas en un equipo en el que algunos usan **Windows** y otros usan **Linux**. 
 
-Con un `Dockerfile`, todos simplemente construyen la imagen Docker y saben que el entorno de trabajo es **exactamente el mismo** para todos.
+❌ Sin un `Dockerfile`, cada uno tendría que configurar manualmente PHP y las dependencias necesarias en su sistema operativo, lo que puede generar inconsistencias (problemas con versiones, configuraciones, o dependencias). 
+
+<img src="https://media1.tenor.com/m/F0E929D1tLsAAAAC/office-chaos-fire-chaotic.gif" />
+
+✅ Con un `Dockerfile`, todos simplemente construyen la imagen Docker y saben que el entorno de trabajo es **exactamente el mismo** para todos.
+
+
 
 ### Resumen:
 
