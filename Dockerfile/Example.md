@@ -10,7 +10,7 @@ FROM php:8.1-cli
 # Configurar el directorio de trabajo dentro del contenedor
 WORKDIR /app
 
-# Copiar todos los archivos del directorio actual al contenedor
+# Copiar todos los archivos del directorio actual donde está ubicado el proyecto (fuera del contenedor) al contenedor
 COPY . /app
 
 # Comando por defecto para ejecutar el contenedor (puedes cambiarlo si lo deseas)
