@@ -60,7 +60,7 @@ Aquí defines un **volumen**. Un volumen en Docker es un mecanismo para montar u
 
 Cualquier cambio que hagas en los archivos dentro de tu directorio local (host) se reflejará automáticamente dentro del contenedor. Esto es útil durante el desarrollo, ya que puedes modificar tu código sin tener que reconstruir o reiniciar el contenedor cada vez.
   
-  En este ejemplo, el directorio del host será accesible dentro del contenedor bajo la ruta `/app`.
+En este ejemplo, el directorio del host será accesible dentro del contenedor bajo la ruta `/app`.
 
 ### Ejemplo de flujo de trabajo:
 
@@ -132,7 +132,7 @@ El directorio local `./mi-proyecto-loco` se monta en el contenedor en `/app`. Es
 
 Si usas una configuración de **"watch"** o alguna funcionalidad de sincronización nativa de Docker, sería Docker el encargado de gestionar los archivos y monitorear cambios, **sin depender del sistema de archivos del host directamente** como lo hace un **bind mount**.
 
-1. **Bind Mount** (lo que tienes ahora con `- .:/app`):
+1. **Bind Mount** (lo que tienes ahora con `- ./mi-proyecto-loco:/app `):
    - **El sistema de archivos del host gestiona la sincronización**: Los archivos del directorio local en tu máquina se montan directamente dentro del contenedor, lo que significa que el sistema de archivos del host es responsable de gestionar esos archivos.
    
    - **Tiempo real**: Los cambios en el host se reflejan instantáneamente en el contenedor y viceversa.
