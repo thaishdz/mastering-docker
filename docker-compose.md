@@ -167,7 +167,7 @@ services:
 ```
 
 ### En este caso:
-- **Elimina el bind mount** (`volumes: - .:/app`) para que no haya conflicto entre el sistema de archivos del host y la gestión de Docker.
+- **Elimina el bind mount** (`volumes: - ./mi-proyecto-loco:/app`) para que no haya conflicto entre el sistema de archivos del host y la gestión de Docker.
   
 - **Docker gestionará los archivos** usando la funcionalidad `watch`, supervisando el directorio `.` (tu directorio local) y sincronizando los cambios en `/app` dentro del contenedor.
 
