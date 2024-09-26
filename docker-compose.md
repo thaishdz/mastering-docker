@@ -15,10 +15,13 @@ Esto lo logramos con la instrucción `volumes` en el archivo `docker-compose.yml
 volumes:
   - .:/app
 ```
+<p align="center">
+  <em>El - es sintaxis YAML y significa que quieres crear una lista</em>
+</p>
 
 ### ¿Qué significa esta línea?
-1. **"."**: La parte a la izquierda de los dos puntos (`:`) representa el directorio actual en tu máquina local (el *host*), es decir, donde está tu código fuente.
-2. **"/app"**: La parte a la derecha de los dos puntos es el directorio dentro del contenedor donde queremos montar ese código.
+1. `.`: La parte a la izquierda de los dos puntos (`:`) representa el directorio actual en tu máquina local (el *host*), es decir, donde está tu código fuente.
+2. `/app`: La parte a la derecha de los dos puntos es el directorio dentro del contenedor donde queremos montar ese código.
 
 ### ¿Qué hace Docker con esto?
 Cuando defines un volumen de esta manera:
@@ -37,6 +40,33 @@ Cuando defines un volumen de esta manera:
 
 En resumen, con esta configuración, tu código en el contenedor estará **"sincronizado" en tiempo real** con el de tu máquina local, haciendo mucho más ágil el proceso de desarrollo.
 
-### ¿Por qué es útil?
+## ¿Quieres más volúmenes?
 
+```yaml
+volumes:
+  - ./src:/app/src  # Montar el directorio src
+  - ./config:/app/config  # Montar el directorio config
+```
+<p align="center">
+  <em>Simplemente añade más elementos</em>
+</p>
+
+## Ponerle nombre a un volumen
+
+Si quisieras definir un volumen con un nombre específico (no un “bind mount” como el que estamos usando):
+
+```yaml
+volumes:
+  my_volume:
+    external: false
+```
+
+Y luego lo usarías en los servicios:
+```yaml
+services:
+  php:
+    volumes:
+      - my_volume:/app/data
+```
+### ¿Por qué es útil?
 Cuando desarrollas, no quieres estar constantemente reconstruyendo la imagen o volviendo a crear el contenedor cada vez que cambias una línea de código. El uso de volúmenes te permite trabajar de manera fluida y rápida, como si estuvieras ejecutando PHP directamente en tu máquina, pero dentro de un contenedor.
