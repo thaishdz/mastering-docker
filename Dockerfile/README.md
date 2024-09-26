@@ -1,7 +1,7 @@
 
 # Dockerfile
 
-Es un archivo de texto que contiene **instrucciones** que Docker sigue para construir una **imagen** de contenedor. 
+Contiene **instrucciones** que Docker sigue para construir una **imagen** de contenedor. 
 
 La imagen es básicamente un paquete que incluye todo lo que tu aplicación necesita para ejecutarse: 
 - sistema operativo
@@ -23,22 +23,22 @@ La imagen es básicamente un paquete que incluye todo lo que tu aplicación nece
 3. **Aislamiento de dependencias**:
    - Un `Dockerfile` te permite instalar todas las dependencias de tu aplicación **aisladas del sistema operativo host**. Esto significa que tu sistema no se ensucia con instalaciones o configuraciones específicas (por ejemplo, versiones de PHP o bibliotecas), ya que todo se mantiene dentro del contenedor.
 
-   - P.e: Si necesitas diferentes versiones de PHP para distintos proyectos, puedes tener un contenedor con PHP 7.4 y otro con PHP 8.1, sin que entren en conflicto. 👍
+      - P.e: Si necesitas diferentes versiones de PHP para distintos proyectos, puedes tener un contenedor con PHP 7.4 y otro con PHP 8.1, sin que entren en conflicto. 👍
 
-5. **Automatización**:
+4. **Automatización**:
    - Un `Dockerfile` permite **automatizar** el proceso de construcción y despliegue de tu aplicación. Si tienes instrucciones claras de cómo instalar dependencias, preparar archivos, ejecutar scripts, todo eso queda registrado en el `Dockerfile`.
 
-   - P.e: Configuras en el `Dockerfile` cómo instalar las extensiones de PHP que necesita tu proyecto. Cada vez que se construye la imagen, Docker seguirá esos pasos.
+      - P.e: Configuras en el `Dockerfile` cómo instalar las extensiones de PHP que necesita tu proyecto. Cada vez que se construye la imagen, Docker seguirá esos pasos.
 
-7. **Portabilidad**:
+5. **Portabilidad**:
    - Con un `Dockerfile`, puedes mover tu aplicación a cualquier entorno con Docker. Todo lo que necesita para ejecutarse (excepto los datos externos) está dentro del contenedor. Puedes construirlo una vez y correrlo en cualquier sistema que tenga Docker.
 
-   - P.e: Si desarrollas localmente, puedes compartir tu `Dockerfile` con otros miembros del equipo para que tengan la misma configuración. También puedes usar el mismo contenedor en tu entorno de producción.
+      - P.e: Si desarrollas localmente, puedes compartir tu `Dockerfile` con otros miembros del equipo para que tengan la misma configuración. También puedes usar el mismo contenedor en tu entorno de producción.
 
-9. **Facilidad de escalabilidad**:
+6. **Facilidad de escalabilidad**:
    - Cuando trabajas en entornos de producción (por ejemplo, en la nube), los contenedores son muy utilizados para **escalar aplicaciones rápidamente**. Un `Dockerfile` bien configurado te permite desplegar múltiples contenedores idénticos de tu aplicación, asegurando una distribución uniforme de la carga.
 
-10. **Estandarización**:
+7. **Estandarización**:
    - Usar un `Dockerfile` permite a los equipos de desarrollo y operaciones seguir el mismo proceso de configuración y despliegue. Con una estructura estándar, es más fácil colaborar y entender cómo se debe preparar el entorno de la aplicación.
    
    - P.e: Si más personas se unen al proyecto, pueden levantar el entorno de desarrollo rápidamente sin tener que instalar dependencias manualmente en su sistema.
