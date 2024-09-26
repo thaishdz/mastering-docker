@@ -8,7 +8,6 @@
 Docker Compose es una herramienta que te **permite definir y ejecutar múltiples contenedores** Docker en un solo archivo de configuración.
 
 ```yaml
-version: '3'
 services:
   php:
     build: .
@@ -20,12 +19,6 @@ services:
 
 ### Explicación paso a paso:
 
-```yaml
-version: '3'
-```
-Esta línea define la **versión del formato de archivo de Docker Compose** que estás utilizando.
-- **Versión 3**: De las versiones más usadas (a 2024), especialmente para entornos de producción y despliegues.
----
 ```yaml
 services:
 ```
@@ -70,7 +63,7 @@ Aquí defines un **volumen**. Un volumen en Docker es un mecanismo para montar u
 
 ### Ejemplo de flujo de trabajo:
 
-1. Inicias el contenedor con `docker-compose up`.
+1. Inicias el contenedor con `docker compose up`.
 2. Editas tu archivo `index.php` en tu máquina local, añadiendo una nueva línea como:
     ```php
     echo "Nueva línea de código\n";
@@ -150,3 +143,6 @@ Cada vez que levantes el contenedor, Docker ejecutará automáticamente el coman
 - **Facilidad de uso**: Te permite ejecutar tu entorno PHP con un solo comando (`docker-compose up`), sin tener que escribir largos comandos `docker run`.
 - **Desarrollo en tiempo real**: Con los volúmenes, puedes modificar tus archivos en tu máquina local, y esos cambios se reflejan instantáneamente dentro del contenedor.
 - **Portabilidad**: Este archivo puede ser compartido entre miembros de tu equipo o utilizado en distintos entornos sin problemas, asegurando que todos ejecuten la aplicación de la misma manera.
+
+### Ayuditas 🛎️
+-[Docker Compose Quickstart📰⚡](https://docs.docker.com/compose/gettingstarted/)
