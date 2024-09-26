@@ -1,7 +1,7 @@
 
 # Dockerfile
 
-Contiene **instrucciones** que Docker sigue para construir una **imagen** de contenedor. 
+> Contiene **instrucciones** que Docker sigue para construir una **imagen** de contenedor. 
 
 La imagen es básicamente un paquete que incluye todo lo que tu aplicación necesita para ejecutarse: 
 - sistema operativo
@@ -41,7 +41,7 @@ La imagen es básicamente un paquete que incluye todo lo que tu aplicación nece
 7. **Estandarización**:
    - Usar un `Dockerfile` permite a los equipos de desarrollo y operaciones seguir el mismo proceso de configuración y despliegue. Con una estructura estándar, es más fácil colaborar y entender cómo se debe preparar el entorno de la aplicación.
    
-   - P.e: Si más personas se unen al proyecto, pueden levantar el entorno de desarrollo rápidamente sin tener que instalar dependencias manualmente en su sistema.
+      - P.e: Si más personas se unen al proyecto, pueden levantar el entorno de desarrollo rápidamente sin tener que instalar dependencias manualmente en su sistema.
 
 ### ¿Qué pasa si no uso un `Dockerfile`?
 
