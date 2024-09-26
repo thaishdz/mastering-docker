@@ -7,7 +7,7 @@ La imagen es básicamente un paquete que incluye todo lo que tu aplicación nece
 - sistema operativo
 - bibliotecas
 - dependencias
-- tu código de mierda
+- tu código de mierda 💩
 
 ### ¿Por qué usar un `Dockerfile`?
 
