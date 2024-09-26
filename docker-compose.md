@@ -84,14 +84,14 @@ Con un bind mount, Docker NO controla el contenido del volumen; es tu máquina (
 Imagina que tienes un archivo PHP en el directorio `/home/thais/proyectoLoco` de tu máquina local. Puedes montar este directorio dentro de un contenedor usando un `bind mount`:
 
 ```sh
-docker run -v /home/user/proyecto:/var/www/html php:8.1-apache
+docker run -v /home/thais/proyectoLoco:/var/www/html php:8.1-apache
 ```
 
-- `/home/user/proyectoLoco`: Es el directorio en tu máquina local (host) donde está tu código PHP.
+- `/home/thais/proyectoLoco`: Es el directorio en tu máquina local (host) donde está tu código PHP.
   
 - `/var/www/html`: Es el directorio dentro del contenedor donde el servidor web Apache espera encontrar los archivos PHP.
   
-- Cualquier cambio que hagas en el código dentro de `/home/user/proyectoLoco` en tu máquina local se verá automáticamente dentro del contenedor en `/var/www/html`.
+- Cualquier cambio que hagas en el código dentro de `/home/thais/proyectoLoco` en tu máquina local se verá automáticamente dentro del contenedor en `/var/www/html`.
 
 ### Ventajas de los `bind mounts`
 
@@ -117,9 +117,9 @@ docker run -v /home/user/proyecto:/var/www/html php:8.1-apache
 
 services:
   php:
-    image: php:8.1-cli
+    image: php:8.3-cli
     volumes:
-      - ./mi-proyecto-loco:/app // el bind mount
+      - ./mi-proyecto-loco:/app 👈 el bind mount
     working_dir: /app
     command: php index.php
 
@@ -202,7 +202,7 @@ volumes:
 
 ## Ponerle nombre a un volumen
 
-Si quisieras definir un volumen con un nombre específico (no un “bind mount” como el que estamos usando):
+Si quisieras definir un volumen con un nombre específico (no un `bind mount` como el que estamos usando):
 
 ```yaml
 volumes:
@@ -215,7 +215,7 @@ Y luego lo usarías en los servicios:
 services:
   php:
     volumes:
-      - my_volume:/app/data
+      - my_volume:/app/data 👈 el bind mount
 ```
 ---
 ```yaml
