@@ -6,9 +6,8 @@ Instalación de Docker hasta la ejecución de un contenedor PHP.
 
 
 - [Instalar Docker](https://github.com/thaishdz/mastering-docker/blob/main/guide.md#paso-1-instalar-docker-)
-- [Crear el entorno de desarrollo](https://github.com/thaishdz/mastering-docker/blob/main/guide.md#paso-2-crear-el-entorno-de-desarrollo-)
-
-- 
+- [Crear el entorno de desarrollo](https://github.com/thaishdz/mastering-docker/blob/main/guide.md#paso-2-crear-el-entorno-de-desarrollo)
+- []() 
 
 ### Paso 1: Instalar Docker 🐳
 
@@ -110,7 +109,7 @@ services:
 
 Este archivo define un servicio llamado `php`, que usa el `Dockerfile` para construir la imagen y monta el directorio actual dentro del contenedor.
 
-### Paso 4: Construir la imagen Docker
+### Paso 3: Construir la imagen Docker
 
 Ahora que tienes todo configurado, es hora de construir la imagen Docker a partir del `Dockerfile`. Ejecuta el siguiente comando en la terminal (desde el directorio donde está tu `Dockerfile`):
 
@@ -123,7 +122,7 @@ docker build -t php-docker-app .
 
 Este comando descargará la imagen base de PHP y construirá tu imagen personalizada.
 
-### Paso 5: Ejecutar el contenedor
+# Paso 4: Ejecutar el contenedor
 
 Después de construir la imagen, puedes ejecutar el contenedor con el siguiente comando:
 
@@ -140,7 +139,7 @@ Este comando ejecutará el script `index.php` dentro del contenedor y deberías 
 ¡Hola Docker! 👋
 ```
 
-### Paso 6: Ejecutar con Docker Compose
+### Ejecutar con Docker Compose
 
 Puedes levantar el contenedor así:
 
