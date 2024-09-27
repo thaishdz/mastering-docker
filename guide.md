@@ -144,7 +144,11 @@ docker compose up
 
 Este comando construirá y ejecutará el contenedor de acuerdo con las especificaciones del archivo `docker-compose.yml`.
 
-### Paso 7: Verificar contenedores en ejecución
+<img width="626" alt="Captura de pantalla 2024-09-26 a las 19 06 05" src="https://github.com/user-attachments/assets/38468b1d-8fca-470c-918a-123dfcf64202">
+
+---
+
+# Verificar contenedores en ejecución ☑️
 
 Si deseas ver todos los contenedores en ejecución, puedes usar el siguiente comando:
 
@@ -158,7 +162,7 @@ Para ver los contenedores que han sido ejecutados anteriormente (incluidos los d
 docker ps -a
 ```
 
-### Paso 8: Detener y limpiar contenedores (Opcional)
+# Detener y limpiar contenedores ♻️
 
 Para detener un contenedor que está corriendo, puedes usar el siguiente comando:
 
@@ -168,11 +172,41 @@ docker stop <container_id>
 
 Si ejecutas `docker ps` para ver los contenedores en ejecución, obtendrás un **ID de contenedor** que puedes usar para detenerlo.
 
-Para eliminar contenedores o imágenes innecesarias y liberar espacio, puedes ejecutar:
+Para __eliminar__ contenedores o imágenes innecesarias y liberar espacio, puedes ejecutar:
 
 ```bash
 docker system prune
 ```
+
+# Nombrar un contenedor
+
+<img width="626" alt="Captura de pantalla 2024-09-26 a las 19 06 05" src="https://github.com/user-attachments/assets/38468b1d-8fca-470c-918a-123dfcf64202">
+
+## ¿Qué es ese `php-php-1`?
+
+`<nombre_del_servicio>-<nombre_del_proyecto>-<número_de_instancia>`
+
+1. **`php`** es el nombre del servicio, que viene de la definición del servicio en el archivo `docker-compose.yml` (por ejemplo, `php:` en el archivo).
+2. **`php`** también es el nombre del proyecto. Si no especificas un nombre de proyecto en tu archivo `docker-compose.yml`, Docker Compose usa el nombre de la carpeta en la que se encuentra el archivo como nombre de proyecto. Probablemente, tu directorio se llama `php`.
+3. **`1`** es el número de la instancia. Docker Compose asigna un número incremental a cada contenedor, comenzando desde 1. Esto es útil cuando levantas múltiples réplicas del mismo servicio.
+
+### Solución
+Si deseas evitar el nombre repetido o controlarlo más explícitamente, puedes hacer una de estas cosas:
+
+1. **Cambiar el nombre del proyecto** usando la opción `-p`:
+   ```bash
+   docker-compose -p mi_proyecto up
+   ```
+   Esto cambiará el nombre del proyecto y el contenedor será nombrado de acuerdo con ese nombre de proyecto.
+
+2. **Especificar un nombre de contenedor fijo** en el archivo `docker-compose.yml`:
+   ```yaml
+   services:
+     php:
+       container_name: mi_contenedor_php
+       ...
+   ```
+   Esto fijará el nombre del contenedor a `mi_contenedor_php` en lugar de generar nombres automáticamente.
 
 ### Resumen de la guía:
 1. **Instalación de Docker**: Instala Docker Desktop en Windows/macOS/Linux.
