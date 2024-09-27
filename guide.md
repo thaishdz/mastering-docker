@@ -12,19 +12,19 @@ Instalación de Docker hasta la ejecución de un contenedor PHP.
 
 # Paso 1: Instalar Docker 🐳
 
-#### **En Windows**:
+### **En Windows**:
 1. Descarga **Docker Desktop** desde [el sitio oficial de Docker](https://www.docker.com/products/docker-desktop).
 2. Ejecuta el instalador y sigue las instrucciones.
 3. Asegúrate de habilitar **WSL 2** (subsistema de Windows para Linux) si te lo pide durante la instalación.
 4. Una vez instalado, inicia Docker Desktop. Se ejecutará en segundo plano, y verás un icono en la bandeja del sistema.
 
-#### **En macOS**:
+### **En macOS**:
 1. Descarga **Docker Desktop** desde [el sitio oficial de Docker](https://www.docker.com/products/docker-desktop).
 2. Ejecuta el archivo `.dmg` y arrastra el icono de Docker a la carpeta de aplicaciones.
 3. Abre Docker desde las aplicaciones. Puede pedirte permisos administrativos.
 4. Docker se ejecutará en segundo plano, y aparecerá un icono en la barra de menú superior.
 
-#### **En Linux**:
+### **En Linux**:
 1. Abre una terminal y ejecuta los siguientes comandos para instalar Docker en tu distribución Linux (en este ejemplo es para **Ubuntu**):
    ```bash
    sudo apt update
@@ -63,7 +63,7 @@ mkdir php-docker-app
 cd php-docker-app
 ```
 
-#### Crear un `Dockerfile`
+## Crear un `Dockerfile`
 
 El `Dockerfile` define cómo Docker debe configurar el contenedor para ejecutar PHP. Crea un archivo llamado `Dockerfile` con el siguiente contenido:
 
@@ -81,7 +81,7 @@ COPY . /app
 CMD ["php", "./index.php"]
 ```
 
-#### Crear un archivo PHP
+## Crear un archivo PHP
 
 Ahora vamos a crear un simple script PHP que será ejecutado dentro del contenedor. Crea un archivo llamado `index.php` dentro del directorio del proyecto con el siguiente contenido:
 
@@ -90,7 +90,7 @@ Ahora vamos a crear un simple script PHP que será ejecutado dentro del contened
 echo "¡Hola, Docker! 👋\n";
 ```
 
-#### Crear un archivo `docker-compose.yml`
+## Crear un archivo `docker-compose.yml`
 
 Si quieres gestionar tu contenedor más easy, creálo. Esto te permite arrancar el contenedor con un solo comando y mantener un entorno más ordenado.
 
@@ -140,7 +140,7 @@ Este comando ejecutará el script `index.php` dentro del contenedor y deberías 
 ¡Hola Docker! 👋
 ```
 
-### Ejecutar con Docker Compose
+## Ejecutar con Docker Compose
 
 Puedes levantar el contenedor así:
 
@@ -154,7 +154,7 @@ Este comando construirá y ejecutará el contenedor de acuerdo con las especific
 
 ---
 
-# Nombrar un contenedor
+# Bautizar un contenedor
 
 <img width="626" alt="Captura de pantalla 2024-09-26 a las 19 06 05" src="https://github.com/user-attachments/assets/38468b1d-8fca-470c-918a-123dfcf64202">
 
