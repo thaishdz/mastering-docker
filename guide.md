@@ -1,10 +1,6 @@
 
 # Installation Guide 🚀
 
-
-Instalación de Docker hasta la ejecución de un contenedor PHP.
-
-
 - [Instalar Docker](https://github.com/thaishdz/mastering-docker/blob/main/guide.md#paso-1-instalar-docker-)
 - [Crear el entorno de desarrollo](https://github.com/thaishdz/mastering-docker/blob/main/guide.md#paso-2-crear-el-entorno-de-desarrollo)
 - [Construir la imagen](https://github.com/thaishdz/mastering-docker/blob/main/guide.md#paso-3-construir-la-imagen)
