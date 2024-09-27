@@ -8,33 +8,7 @@
 
 # Paso 1: Instalar Docker 🐳
 
-### **En Windows**:
-1. Descarga **Docker Desktop** desde [el sitio oficial de Docker](https://www.docker.com/products/docker-desktop).
-2. Ejecuta el instalador y sigue las instrucciones.
-3. Asegúrate de habilitar **WSL 2** (subsistema de Windows para Linux) si te lo pide durante la instalación.
-4. Una vez instalado, inicia Docker Desktop. Se ejecutará en segundo plano, y verás un icono en la bandeja del sistema.
-
-### **En macOS**:
-1. Descarga **Docker Desktop** desde [el sitio oficial de Docker](https://www.docker.com/products/docker-desktop).
-2. Ejecuta el archivo `.dmg` y arrastra el icono de Docker a la carpeta de aplicaciones.
-3. Abre Docker desde las aplicaciones. Puede pedirte permisos administrativos.
-4. Docker se ejecutará en segundo plano, y aparecerá un icono en la barra de menú superior.
-
-### **En Linux**:
-1. Abre una terminal y ejecuta los siguientes comandos para instalar Docker en tu distribución Linux (en este ejemplo es para **Ubuntu**):
-   ```bash
-   sudo apt update
-   sudo apt install docker.io -y
-   sudo systemctl start docker
-   sudo systemctl enable docker
-   ```
-2. Agrega tu usuario al grupo `docker` (esto es opcional pero te permitirá ejecutar Docker sin `sudo`):
-   ```bash
-   sudo usermod -aG docker $USER
-   ```
-3. Reinicia tu sesión para que los cambios surtan efecto.
-
-Para otras distribuciones Linux, puedes encontrar las instrucciones específicas [en la documentación oficial de Docker](https://docs.docker.com/engine/install/).
+Descarga **Docker Desktop** para tu sistema operativo en [el sitio oficial de Docker](https://www.docker.com/products/docker-desktop).
 
 ### Verificar la instalación de Docker
 
