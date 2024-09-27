@@ -4,7 +4,7 @@
 
 ### ¿Por qué mi contenedor termina al finalizar la ejecición de mi código?
 
-Un contenedor en Docker **siempre se detiene** cuando el proceso principal (normalmente un programa o script) que se ejecuta en su interior finaliza. En muchos casos, el proceso que se ejecuta en el contenedor PHP podría ser un script o una aplicación que finaliza inmediatamente después de imprimirse un mensaje (por ejemplo, "se imprimió con el color rojo").
+Un contenedor en Docker **siempre se detiene** cuando el proceso principal (normalmente un programa o script) que se ejecuta en su interior finaliza. En muchos casos, el proceso que se ejecuta en el contenedor PHP podría ser un script o una aplicación que finaliza inmediatamente después de imprimirse un mensaje.
 
 Si quieres que el contenedor siga corriendo, necesitas:
 
