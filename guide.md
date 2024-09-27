@@ -7,10 +7,10 @@ Instalación de Docker hasta la ejecución de un contenedor PHP.
 
 - [Instalar Docker](https://github.com/thaishdz/mastering-docker/blob/main/guide.md#paso-1-instalar-docker-)
 - [Crear el entorno de desarrollo](https://github.com/thaishdz/mastering-docker/blob/main/guide.md#paso-2-crear-el-entorno-de-desarrollo)
-- [Crear la imagen](https://github.com/thaishdz/mastering-docker/blob/main/guide.md#paso-3-crear-la-imagen)
+- [Construir la imagen](https://github.com/thaishdz/mastering-docker/blob/main/guide.md#paso-3-construir-la-imagen)
 - [Ejecutar el contenedor](https://github.com/thaishdz/mastering-docker/blob/main/guide.md#paso-4-ejecutar-el-contenedor)
 
-### Paso 1: Instalar Docker 🐳
+# Paso 1: Instalar Docker 🐳
 
 #### **En Windows**:
 1. Descarga **Docker Desktop** desde [el sitio oficial de Docker](https://www.docker.com/products/docker-desktop).
@@ -50,7 +50,7 @@ docker --version
 
 Si ves algo como `Docker version 20.10.x`, entonces Docker está instalado correctamente.
 
-### Paso 2: Crear el entorno de desarrollo
+# Paso 2: Crear el entorno de desarrollo
 
 Ahora que Docker está instalado, vamos a crear un contenedor para ejecutar PHP (por ejemplo). Sigue estos pasos:
 
