@@ -7,6 +7,7 @@ Instalación de Docker hasta la ejecución de un contenedor PHP.
 
 - [Instalar Docker](https://github.com/thaishdz/mastering-docker/blob/main/guide.md#paso-1-instalar-docker-)
 - [Crear el entorno de desarrollo](https://github.com/thaishdz/mastering-docker/blob/main/guide.md#paso-2-crear-el-entorno-de-desarrollo-)
+
 - 
 
 ### Paso 1: Instalar Docker 🐳
@@ -39,7 +40,7 @@ Instalación de Docker hasta la ejecución de un contenedor PHP.
 
 Para otras distribuciones Linux, puedes encontrar las instrucciones específicas [en la documentación oficial de Docker](https://docs.docker.com/engine/install/).
 
-### Paso 2: Verificar la instalación de Docker
+### Verificar la instalación de Docker
 
 Abre una terminal o línea de comandos y ejecuta el siguiente comando para asegurarte de que Docker está instalado correctamente:
 
