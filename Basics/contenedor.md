@@ -1,10 +1,16 @@
 
 # ¿Qué es un contenedor?
 
-Cada contenedor tiene su propio sistema de archivos, procesos, variables de entorno, etc., lo que significa que:
+<img width="511" alt="image" src="https://github.com/user-attachments/assets/f61d2b52-3bcc-4a11-9a43-ed3ed7f4b2bf">
+
+
+
+Cada contenedor tiene su propio __sistema de archivos__, __procesos__, __variables de entorno__, etc., lo que significa que:
 
 - __Aislamiento de procesos__: Los procesos que corren dentro de un contenedor no pueden ver o interactuar con los procesos de otro contenedor.
+  
 - __Aislamiento de archivos__: Cada contenedor tiene su propio sistema de archivos independiente. Un contenedor no puede acceder directamente al sistema de archivos de otro contenedor a menos que los contenedores compartan un volumen.
+  
 - __Aislamiento de red__: Cada contenedor tiene su propio stack de red, es decir, su propia interfaz de red y puertos.
 
 
